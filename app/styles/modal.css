@@ -1,0 +1,17 @@
+.planner-modal {
+    
+}
+
+.planner-modal .ant-modal-body {
+    @apply flex flex-col space-y-2 !important;
+}
+
+.planner-modal .ant-input {
+    height: 160px;
+}
+
+.planner-modal .ant-input:disabled {
+    border: none !important;
+    outline: none !important;
+    background-color: white !important;
+}

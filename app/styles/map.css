@@ -1,0 +1,154 @@
+.map-view {
+    position: relative;
+}
+
+.mapview-bg {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    opacity: 0;
+}
+
+.map-view-front {
+    z-index: 2;
+    height: 100%;
+    position: relative;
+}
+
+.map-container {
+    height: 100vh;
+}
+
+.map-container .popup-view .mapboxgl-popup-tip {
+    border-right-color: #F2EDD4;
+}
+
+.map-container .popup-view .mapboxgl-popup-content {
+    background-color: #F2EDD4;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+}
+
+.map-container .mapboxgl-ctrl-geocoder {
+    border-radius: 100px;
+}
+
+.map-container .mapboxgl-ctrl-geocoder--icon-search {
+    position: absolute;
+    right: 11px;
+    left: auto;
+}
+
+.map-container .mapboxgl-ctrl-geocoder--input {
+    padding-left: 18px;
+    padding-right: 50px;
+}
+
+.map-container .mapboxgl-ctrl-geocoder--input:focus {
+    outline: none;
+}
+
+.map-container .mapboxgl-ctrl-geocoder--icon-close {
+    right: 26px !important;
+    position: absolute;
+    top: 0px;
+}
+
+.map-container .mapboxgl-popup-tip:after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    transform: rotate(45deg);
+    background: #F2EDD4;
+    border: 2px solid #FFFFFF;
+    border-top: 0;
+    border-right: 0px;
+    top: -7px;
+    left: 3px;
+    z-index: 1;
+}
+
+.map-container .mapboxgl-popup-tip {
+    position: relative;
+}
+
+.map-btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 9px;
+    z-index: 9;
+    right: 9px;
+}
+
+.map-btn {
+    width: 69px;
+    height: 32px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #6D6953;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.map-btn-pen {
+    width: 32px;
+    height: 32px;
+    background: #006561;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 24px;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.mode-items {
+    position: absolute;
+    z-index: 2;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mode-item {
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #006561;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.map-view-mode {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: white;
+    padding: 0;
+    padding-left: 6px;
+    font-size: 12px;
+    opacity: 0.8;
+    border-radius: 0 5px 0 0;
+    overflow: hidden;
+}
+
+.mapboxgl-ctrl-logo {
+    display: none !important;
+}
