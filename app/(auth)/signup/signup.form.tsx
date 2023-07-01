@@ -3,7 +3,6 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { setCookie } from "cookies-next"
 import Image from "next/image"
-import { getClient } from "@/lib/graphql"
 import { gql, useMutation } from "@apollo/client";
 import { useRef, useEffect } from "react";
 

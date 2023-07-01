@@ -17,11 +17,11 @@
 
 > Techs: 
 
-    - @Client: NextJS, Mapbox, WeatherAPI, GraphQL, Typescript...
+    - @Client: NextJS, Mapbox, Antd, Tailwind, WeatherAPI, GraphQL, Typescript...
 
         > Repo: https://github.com/Darkness-Scholar/travel_plus_client.git
 
-    - @Server: NodeJS, ExpresJS, SocketIO, Typescript...
+    - @Server: NodeJS, ExpresJS, GraphQL, SocketIO, Typescript...
 
         > Repo: https://github.com/Darkness-Scholar/travel_plus_server.git
 
