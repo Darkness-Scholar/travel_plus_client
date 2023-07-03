@@ -342,7 +342,7 @@ export const FormMap = (props: any) => {
         setPopup(null);
     }
     const onRemovePopup = () => {
-        console.log(`Removed popup`)
+        
         // @ts-ignore
         setPins(produce((draft: Array<any>) => {
             const findIndex = draft.findIndex(item => item.properties.id === popup.properties.id);

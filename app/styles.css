@@ -83,6 +83,39 @@
     border: none;
 }
 
+.planner-creator .ant-modal-content {
+
+}
+
+.selected {
+    @apply text-sky-400;
+}
+
+.border-sm {
+    @apply border-[0.4px] border-solid border-gray-400;
+}
+
+.border-md {
+    @apply border-[0.8px] border-solid border-gray-400;
+}
+
+.border-lg {
+    @apply border-[1px] border-solid border-gray-400;
+}
+
+.border-xl {
+    @apply border-[1.2px] border-solid border-gray-400;
+}
+
 .transition-header {
     @apply transition delay-100 ease-in-out bg-[#846075];
+}
+
+.planner-editor-category-selector {
+
+}
+
+.planner-editor-category-selector .ant-select-selection-item {
+    color: white !important;
+    font-size: 0.92rem !important;
 }

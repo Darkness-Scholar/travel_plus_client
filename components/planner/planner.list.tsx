@@ -71,8 +71,9 @@ const Item: React.FC<ItemProps> = ({ id, transport, time, likes, title, descript
         </div>
         <div className="tags flex space-x-2 mt-2">
             {tags.map(i => {
+                let color = useMemo(() => choose<string>(tagsColors), [])
                 // @ts-ignore
-                return <button key={random()} style={{ backgroundColor: randomColor }} className="rounded-md py-1 bg-opacity-50 px-4 text-xs">
+                return <button key={random()} style={{ backgroundColor: color }} className="rounded-md py-1 bg-opacity-50 px-4 text-xs">
                     {i}
                 </button>
             })}

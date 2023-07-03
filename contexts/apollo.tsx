@@ -1,5 +1,6 @@
 "use client";
-
+import { onError } from "@apollo/client/link/error";
+import { useRouter } from "next/navigation";
 import {
   ApolloLink,
   HttpLink,
@@ -8,8 +9,21 @@ import {
   ApolloNextAppProvider,
   NextSSRInMemoryCache,
   NextSSRApolloClient,
-  SSRMultipartLink,
+  SSRMultipartLink
 } from "@apollo/experimental-nextjs-app-support/ssr";
+
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+
+  console.log(`loi roi ban oi`)
+  
+  if (graphQLErrors)
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(
+        `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+      )
+    );
+  if (networkError) console.log(`[Network error]: ${networkError}`);
+});
 
 function makeClient() {
   const httpLink = new HttpLink({
@@ -22,14 +36,16 @@ function makeClient() {
     link:
       typeof window === "undefined"
         ? ApolloLink.from([
-            new SSRMultipartLink({
-              stripDefer: true,
-            }),
-            httpLink,
-          ])
+          errorLink,
+          new SSRMultipartLink({
+            stripDefer: true,
+          }),
+          httpLink,
+        ])
         : httpLink,
   });
 }
+
 
 export function ApolloWrapper({ children }: React.PropsWithChildren) {
   return (

@@ -1,7 +1,10 @@
 "use client"
 
 import { useMutation, gql } from "@apollo/client"
+import { useRouter } from "next/navigation"
 import { getCookie } from "cookies-next"
+import { Modal, Form, Input, Select, Button } from "antd"
+import { useState } from "react"
 
 interface IPlannerController extends React.HTMLAttributes<HTMLDivElement> {
 
@@ -17,25 +20,30 @@ mutation CreatePlanner($values: CreatePlannerPayload) {
 `
 
 const PlannerController: React.FC<IPlannerController> = ({ ...rest }) => {
- 
+
     let token = getCookie("token") as string
+    const [isShowModal, setIsShowModal] = useState<boolean>(false)
+    const route = useRouter()
+    const show = () => setIsShowModal(true)
+    const hidden = () => setIsShowModal(false)
 
-    const [mutation, { loading }] = useMutation(CREATE_PLANNER, { context: {
-        headers: {
-            "authorization": `Bearer ${token}`
+    const [mutation, { loading }] = useMutation(CREATE_PLANNER, {
+        context: {
+            headers: {
+                "authorization": `Bearer ${token}`
+            }
         }
-    } })
+    })
 
-    const onClickCreatePlanner = async () => {
+    const createPlanner = async (values: { title: string, categories: string | string[], description: string }) => {
         try {
             let req = await mutation({
                 variables: {
-                    values: {
-                        title: "Test_Create_Planner",
-                        description: "Test Description Planner"
-                    }
+                    values: { title: values.title, description: values.description }
                 }
-            })
+            }); hidden()
+
+            route.push("/planner/creator")
 
             console.log(req.data)
         } catch (err) {
@@ -43,8 +51,38 @@ const PlannerController: React.FC<IPlannerController> = ({ ...rest }) => {
         }
     }
     return <div {...rest} className="">
+
+        <Modal centered width={"60%"} className="planner-creator" open={isShowModal} onCancel={hidden} footer={null} closable={false}>
+            <div className="flex mb-2 w-full justify-between items-center">
+                <p className="text-xl font-semibold">Plan Creator</p>
+                <div className="w-4 h-4 rounded-full bg-red-500"></div>
+            </div>
+            <div className="flex space-x-6">
+                <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80" alt="" className="drop-shadow-xl w-[20rem] h-[26rem] rounded-xl" />
+                <Form onFinish={createPlanner} className="w-full" layout="vertical">
+                    <Form.Item name={"title"} required label={<p className="font-semibold">Title</p>}>
+                        <Input className="w-full" />
+                    </Form.Item>
+                    <Form.Item name={"categories"} label={<p className="font-semibold">Categories</p>}>
+                        <Select className="w-full" >
+                            <Select.Option key={"categories.item1"}>Category 1</Select.Option>
+                            <Select.Option key={"categories.item2"}>Category 2</Select.Option>
+                            <Select.Option key={"categories.item3"}>Category 3</Select.Option>
+                        </Select>
+                    </Form.Item>
+                    <Form.Item name={"description"} label={<p className="font-semibold">Description</p>}>
+                        <Input.TextArea className="w-full" style={{ resize: "none" }} rows={6} />
+                    </Form.Item>
+                    <div className="flex space-x-4">
+                        <button className="px-6 py-2 drop-shadow-xl rounded-lg bg-red-500 hover:bg-red-400 text-gray-100 font-semmibold">Cancel</button>
+                        <button type="submit" className="px-6 py-2 drop-shadow-xl rounded-lg bg-sky-500 hover:bg-sky-400 text-gray-100 font-semmibold">Save and continue</button>
+                    </div>
+                </Form>
+            </div>
+        </Modal>
+
         <div className="buttons flex flex-col space-y-4">
-            <button onClick={onClickCreatePlanner} className="bg-[#846075] px-12 py-2 rounded-lg w-52">
+            <button onClick={show} className="bg-[#846075] px-12 py-2 rounded-lg w-52">
                 Create Plan
             </button>
 
