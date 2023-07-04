@@ -1,5 +1,4 @@
 // import { gql } from "@apollo/client"
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Header from './header'
 import Body from './body'
 
@@ -15,28 +14,10 @@ type Repo = {
 //         }
 // }`
 
-export default async function PlanEditor({ repo }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-
-    console.log(repo)
+export default async function PlanEditor() {
 
     return <div className="page-plan-editor bg-white">
         <Header />
         <Body />
     </div>
-}
-
-export const getServerSideProps: GetServerSideProps<{ repo: Repo }> = async (context) => {
-
-    // const req = await getClient().query({ query, variables: {
-    //     id:
-    // } })
-
-    return {
-        props: {
-            repo: {
-                name: "Tung",
-                age: 24
-            }
-        }
-    }
 }
