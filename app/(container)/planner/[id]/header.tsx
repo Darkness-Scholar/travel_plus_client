@@ -2,7 +2,7 @@
 import { Select } from 'antd'
 
 const Header: React.FC<any> = () => {
-    return <div className="px-8 drop-shadow-xl flex items-center justify-between header w-full h-16 bg-gradient-to-r from-orange-400 to-orange-600">
+    return <div className="h-[10vh] px-8 drop-shadow-xl flex items-center justify-between header w-full bg-gradient-to-r from-orange-400 to-orange-600">
         <div>
             <img src="/logo-white.svg" alt="" className='w-full h-[1.8rem]' />
             <p className='text-sm'>Travel plan editor</p>
