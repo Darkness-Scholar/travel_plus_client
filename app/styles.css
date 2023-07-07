@@ -5,13 +5,13 @@
     transform: translateX(-50%);
     align-items: flex-end;
     height: 58px;
-    display: flex;  
+    display: flex;
     gap: 12px;
     will-change: contents;
     box-sizing: content-box;
     border-radius: 12px;
     transform-origin: center bottom;
-  }
+}
 
 .dock-card {
     border-radius: 12px;
@@ -49,7 +49,7 @@
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.1);
 }
-  
+
 .dock-divider-container {
     height: 100%;
     display: flex;
@@ -59,10 +59,6 @@
 
 .divider-container:hover {
     cursor: ns-resize;
-}
-
-.bordered-btn {
-    @apply after:absolute after:rounded-lg after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-sky-500 after:z-10;
 }
 
 .weather_extend_item:last-child {
@@ -83,9 +79,7 @@
     border: none;
 }
 
-.planner-creator .ant-modal-content {
-
-}
+.planner-creator .ant-modal-content {}
 
 .selected {
     @apply text-sky-400;
@@ -111,11 +105,13 @@
     @apply transition delay-100 ease-in-out bg-[#846075];
 }
 
-.planner-editor-category-selector {
-
-}
+.planner-editor-category-selector {}
 
 .planner-editor-category-selector .ant-select-selection-item {
     color: white !important;
     font-size: 0.92rem !important;
+}
+
+.vertical-text {
+    transform: translateX(36%) rotate(-90deg);
 }

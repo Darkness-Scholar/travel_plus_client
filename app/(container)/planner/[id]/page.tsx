@@ -1,6 +1,6 @@
 // import { gql } from "@apollo/client"
-import Header from './header'
-import Body from './body'
+import Header from '@/components/planner/editor/header'
+import Body from '@/components/planner/editor/body'
 
 type Repo = {
     name: string
