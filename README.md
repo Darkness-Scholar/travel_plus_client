@@ -25,8 +25,11 @@ Comming soon ...
 
         > Demo: https://travel-develop.vercel.app/
 
+
     - @Server: NodeJS, ExpresJS, GraphQL, SocketIO, Typescript...
 
         > Repo: https://github.com/Darkness-Scholar/travel_plus_server.git
 
+> Ready for testing:
 
+    - https://travel-develop.vercel.app/planner/123123/map
