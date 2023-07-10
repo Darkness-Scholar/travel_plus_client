@@ -375,7 +375,7 @@ export const FormMap = (props: any) => {
                             <Map
                                 ref={terrainRef}
                                 mapStyle={'mapbox://styles/mapbox/streets-v11'}
-                                mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX}
+                                mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX ?? "pk.eyJ1IjoiZXhvdHJhaWxzIiwiYSI6ImNsODJnemJ5bTBweGgzd21rM3NkZHg1dTcifQ.Z5S3APmFZB4YZ19vEHlXwA"}
                                 initialViewState={{
                                     zoom: zoom,
                                     longitude: lng,
