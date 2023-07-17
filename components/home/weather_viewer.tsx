@@ -1,15 +1,27 @@
 'use client'
 import React from "react"
 import { IWeather, IWeeklyWeather } from "@/types/weather.type"
+import useJsonWebToken from "@/helpers/jwt"
+import { gql, useQuery } from "@apollo/client";
 
 interface IWeatherViewer extends React.HTMLAttributes<HTMLDivElement> {
     weeklyWeather: IWeeklyWeather
 }
 
+const test = gql`
+    query Query {
+        hello
+    }
+`
+
 const WeatherViewer: React.FC<IWeatherViewer> = ({ weeklyWeather, ...rest }) => {
 
+    const req = useQuery(test)
+
+    console.log(req)
 
     return <div {...rest}>
+
         <div className="mt-6 rounded-lg w-full lg:w-[33rem] weather-info bg-blur bg-white bg-opacity-60">
             <div className="flex justify-between items-center pr-4">
                 <h2 className="p-6 text-lg font-semibold text-black">

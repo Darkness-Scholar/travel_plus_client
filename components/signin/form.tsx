@@ -2,15 +2,18 @@
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { setCookie } from "cookies-next"
-import Image from "next/image"
-import { getClient } from "@/lib/graphql"
+
 import { gql, useMutation } from "@apollo/client";
 import { useRef, useEffect } from "react";
+import useJsonWebToken  from "@/helpers/jwt"
 
 const signin = gql`
-    mutation Signup($email: String, $password: String) {
-        signin(email: $email, password: $password) {
-            token
+    mutation Signin($signinInput: SigninInput!) {
+        signin(signinInput: $signinInput) {
+            auth {
+                id
+                token
+            }
         }
     }
 `
@@ -18,9 +21,10 @@ const signin = gql`
 type SigninResponse = {
     data: {
         signin: {
-            token: string,
-            id: string,
-            username: string
+            auth: {
+                id: string
+                token: string
+            }
         }
     }
 }
@@ -36,12 +40,17 @@ const SigninForm: React.FC<any> = () => {
     const handleSignin = async () => {
         try {
             let req = await mutate({
-                variables: { email: emailRef.current?.value, password: passwordRef.current?.value },
+                variables: { signinInput: {
+                    email: emailRef.current?.value, 
+                    password: passwordRef.current?.value
+                } },
             }) as SigninResponse
 
             console.log(req)
 
-            setCookie("token", req.data.signin.token)
+            useJsonWebToken.setToken(req.data.signin.auth.token)
+
+            // setCookie("token", req.data.signin.token)
             route.push("/home")
         } catch (err) {
             console.log(err)

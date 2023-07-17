@@ -17,12 +17,28 @@ const board_dummy: Array<Column> = [
         date: "02/07/2023",
         activities: [
             {
-                _id: "1",
+                _id: "1_01",
                 name: "Activity name",
                 description: "Activity description"
             },
             {
-                _id: "2",
+                _id: "1_02",
+                name: "Activity name",
+                description: "Activity description"
+            }
+        ]
+    },
+    {
+        _id: "2",
+        date: "02/07/2023",
+        activities: [
+            {
+                _id: "2_01",
+                name: "Activity name",
+                description: "Activity description"
+            },
+            {
+                _id: "2_02",
                 name: "Activity name",
                 description: "Activity description"
             }

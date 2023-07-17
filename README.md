@@ -33,3 +33,6 @@ Comming soon ...
 > Ready for testing:
 
     - https://travel-develop.vercel.app/planner/123123/map
+
+
+> Test Account: testdv001@gmail.com // 123123
