@@ -16,7 +16,7 @@ type Repo = {
 
 export default async function PlanEditor() {
 
-    return <div className="page-plan-editor bg-white overflow-hidden">
+    return <div className="bg-white overflow-hidden">
         <Header />
         <Body />
     </div>

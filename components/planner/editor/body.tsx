@@ -18,7 +18,7 @@ const Body: React.FC<any> = () => {
         setOpen(false);
     };
 
-    return <div className="relative">
+    return <div className="relative h-screen px-20 py-16 bg-gray-400">
 
         <button onClick={showDrawer} className="space-x-2 px-4 py-2 flex items-center vertical-text fixed right-0 top-1/2 text-black rounded-t-xl bg-gradient-to-r from-orange-400 to-orange-600">
             <img className="w-5 h-5" src="/icons/ai.svg" alt="" />
@@ -47,12 +47,6 @@ const Body: React.FC<any> = () => {
             </div>
 
         </Drawer>
-        <div className='w-[85%] px-10 py-4 bg-gray-100 max-h-[90vh]'>
-            <div className="h-[10vh] mt-4 flex items-center justify-center space-x-12">
-                <p className="text-lg font-bold text-red-500">123.000 VND</p>
-                <p onClick={() => route.push(`/planner/${params.id}/map`)} className="cursor-pointer text-md font-bold text-orange-500">MAP VIEW</p>
-            </div>
-        </div>
         <BoardProvider>
 
         </BoardProvider>

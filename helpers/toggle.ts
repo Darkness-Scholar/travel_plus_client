@@ -1,16 +1,20 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 
-export default function useToggle () {
-    
+export default function useToggle(cb?: (status) => void) {
+
     const [isOpen, setIsOpen] = useState<boolean>(false)
-    
+
+    useEffect(() => {
+        cb && cb(isOpen)
+    }, [isOpen])
+
     const open = useCallback(() => {
         setIsOpen(true)
-    }, [isOpen])
+    }, [])
 
     const close = useCallback(() => {
         setIsOpen(false)
-    }, [isOpen])
+    }, [])
 
     return { isOpen, open, close }
 }
