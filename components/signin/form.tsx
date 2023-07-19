@@ -50,7 +50,7 @@ const SigninForm: React.FC<any> = () => {
 
             useJsonWebToken.setToken(req.data.signin.auth.token)
 
-            // setCookie("token", req.data.signin.token)
+            setCookie("token", req.data.signin.auth.token)
             route.push("/home")
         } catch (err) {
             console.log(err)

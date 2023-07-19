@@ -11,10 +11,12 @@ interface IPlannerController extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const CREATE_PLANNER = gql`
-mutation CreatePlanner($values: CreatePlannerPayload) {
-    createPlanner(values: $values) {
+mutation Mutation($createPlanInput: CreatePlanInput!) {
+    createPlan(createPlanInput: $createPlanInput) {
+      data {
+        id
         title
-        description
+      }
     }
   }
 `
@@ -27,25 +29,18 @@ const PlannerController: React.FC<IPlannerController> = ({ ...rest }) => {
     const show = () => setIsShowModal(true)
     const hidden = () => setIsShowModal(false)
 
-    const [mutation, { loading }] = useMutation(CREATE_PLANNER, {
-        context: {
-            headers: {
-                "authorization": `Bearer ${token}`
-            }
-        }
-    })
+    const [mutation, { loading }] = useMutation(CREATE_PLANNER)
 
     const createPlanner = async (values: { title: string, categories: string | string[], description: string }) => {
         try {
-            let req = await mutation({
+            let { data: req } = await mutation({
                 variables: {
-                    values: { title: values.title, description: values.description }
+                    createPlanInput: { title: values.title, description: values.description }
                 }
             }); hidden()
 
-            route.push("/planner/creator")
+            route.push(`/planner/${req.createPlan.data.id}`)
 
-            console.log(req.data)
         } catch (err) {
             console.log(err)
         }

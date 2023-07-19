@@ -2,11 +2,11 @@
 
 import './globals.css'
 import { ApolloWrapper } from '@/contexts/apollo'
-import { Open_Sans } from 'next/font/google'
+import { Roboto_Slab } from 'next/font/google'
 import { Provider } from 'react-redux'
 import store from '@/store/store'
 
-const inter = Open_Sans({ subsets: ['latin'] })
+const inter = Roboto_Slab({ subsets: ['latin'] })
 
 export default function RootLayout({
   children,

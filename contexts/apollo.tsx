@@ -1,5 +1,6 @@
 "use client";
 import { onError } from "@apollo/client/link/error";
+import { getCookie } from "cookies-next";
 import { setContext } from "@apollo/client/link/context" 
 import useJsonWebToken  from "@/helpers/jwt"
 import {
@@ -14,7 +15,7 @@ import {
 } from "@apollo/experimental-nextjs-app-support/ssr";
 
 const authLink = setContext((_, { headers }) => {
-  const token = useJsonWebToken.getToken()
+  const token = getCookie("token")// useJsonWebToken.getToken()
   return {
     headers: {
       ...headers,
@@ -43,7 +44,7 @@ function makeClient() {
     //fetchOptions: { cache: "no-store" },
   });
 
-  const client = authLink.concat(httpLink)
+  const client = authLink.concat(httpLink) //.concat(errorLink)
 
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
