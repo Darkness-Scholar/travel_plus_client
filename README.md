@@ -21,14 +21,14 @@ Comming soon ...
 
     - @Client: NextJS, Mapbox, Antd, Tailwind, WeatherAPI, GraphQL, Typescript...
 
-        > Repo: https://github.com/Darkness-Scholar/travel_plus_client.git
+        > Repo: https://github.com/darkness1802/travel_plus_client
 
         > Demo: https://travel-develop.vercel.app/
 
 
     - @Server: NodeJS, ExpresJS, GraphQL, SocketIO, Typescript...
 
-        > Repo: https://github.com/Darkness-Scholar/travel_plus_server.git
+        > Repo: https://github.com/darkness1802/extravel-server
 
 > Ready for testing:
 
