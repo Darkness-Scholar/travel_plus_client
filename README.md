@@ -32,7 +32,13 @@ Comming soon ...
 
 > Ready for testing:
 
-    - https://travel-develop.vercel.app/planner/123123/map
+    * Map handler:
+
+        - https://travel-develop.vercel.app/planner/123123/map
+
+    * Task manager (Trello belke):
+
+        - https://travel-develop.vercel.app/planner/123123
 
 
 > Test Account: testdv001@gmail.com // 123123
