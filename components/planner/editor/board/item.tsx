@@ -24,7 +24,8 @@ const Item: React.FC<ItemProps> = ({ data }) => {
     const dndKitItemStyle = {
         transform: CSS.Translate.toString(transform),
         transition,
-        opacity: isDragging ? 0.5 : null
+        opacity: isDragging ? 0.5 : null,
+        border: isDragging ? '1px solid #2ecc71' : null,
     }
 
     return <div ref={setNodeRef} style={dndKitItemStyle} {...attributes} {...listeners}>

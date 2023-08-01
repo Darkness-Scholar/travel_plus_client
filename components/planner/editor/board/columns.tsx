@@ -9,13 +9,13 @@ import useToggle from "@/helpers/toggle"
 import { ColumnType } from "./board_dummy"
 
 interface ColumnsProps extends React.HTMLAttributes<HTMLDivElement> {
-    colums: Array<ColumnType>
+    columns: Array<ColumnType>
 }
 
-const Colums: React.FC<ColumnsProps> = ({ colums }) => {
-    return <SortableContext items={colums.map(i => i._id)} strategy={horizontalListSortingStrategy}>
+const Colums: React.FC<ColumnsProps> = ({ columns }) => {
+    return <SortableContext items={columns.map(i => i._id)} strategy={horizontalListSortingStrategy}>
         <div className="flex space-x-4 p-4 min-w-[12rem]">
-            {colums.map((item) => <Column
+            {columns.map((item) => <Column
                 id={item._id}
                 key={item._id}
                 data={item}
